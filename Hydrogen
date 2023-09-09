@@ -112,8 +112,8 @@ main() {
 
   unzip_file "hydrogen.zip" "hydrogen_unzip" "Unzipping Hydrogen..." "Unzipped Hydrogen!" "Failed to unzip Hydrogen."
 
-  local hydrogen_app_path="/Applications/Hydrogen.app"
-  local roblox_app_path="/Applications/Roblox.app"
+  local hydrogen_app_path="/Desktop/Hydrogen.app"
+  local roblox_app_path="/Desktop/Roblox.app"
 
   [ -d "$hydrogen_app_path" ] && rm -rf "$hydrogen_app_path"
   [ -d "$roblox_app_path" ] && rm -rf "$roblox_app_path"
@@ -146,10 +146,10 @@ main() {
   mv "Roblox.app" "$roblox_app_path"
   chmod -R 777 "$roblox_app_path"
 
-  cp "Hydrogen.app/Contents/Resources/libHydrogen.dylib" "/Applications/Roblox.app/Contents/MacOS/libHydrogen.dylib"
-  cp "/Applications/Roblox.app/Contents/MacOS/RobloxPlayer" "/Applications/Roblox.app/Contents/MacOS/.RobloxPlayer"
+  cp "Hydrogen.app/Contents/Resources/libHydrogen.dylib" "/Desktop/Roblox.app/Contents/MacOS/libHydrogen.dylib"
+  cp "/Desktop/Roblox.app/Contents/MacOS/RobloxPlayer" "/Desktop/Roblox.app/Contents/MacOS/.RobloxPlayer"
 
-  "Hydrogen.app/Contents/Resources/insert_dylib" --strip-codesig --all-yes "/Applications/Roblox.app/Contents/MacOS/libHydrogen.dylib" "/Applications/Roblox.app/Contents/MacOS/.RobloxPlayer" "/Applications/Roblox.app/Contents/MacOS/RobloxPlayer" >/dev/null 2>&1
+  "Hydrogen.app/Contents/Resources/insert_dylib" --strip-codesig --all-yes "/Desktop/Roblox.app/Contents/MacOS/libHydrogen.dylib" "/Desktop/Roblox.app/Contents/MacOS/.RobloxPlayer" "/Desktop/Roblox.app/Contents/MacOS/RobloxPlayer" >/dev/null 2>&1
 
   mv "Hydrogen.app" "$hydrogen_app_path"
   chmod -R 777 "$hydrogen_app_path"
